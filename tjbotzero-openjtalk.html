@@ -1,0 +1,92 @@
+<script type="text/x-red" data-template-name="tjbotzero-openjtalk">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-htsvoice"><i class="fa fa-tag"></i>htsvoice</label>
+        <select id="node-input-htsvoice">
+            <option value="./voice/mei/mei_normal.voice">Normal</option>
+            <option value="./voice/mei/mei_angry.voice">Angry</option>
+            <option value="./voice/mei/mei_bashful.voice">Bashful</option>
+            <option value="./voice/mei/mei_happy.voice">Happy</option>
+            <option value="./voice/mei/mei_sad.voice">Sad</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-dic"><i class="fa fa-tag"></i>dic</label>
+        <input type="text" id="node-input-dic" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-sampling_rate"><i class="fa fa-tag"></i>sampling_rate</label>
+        <input type="text" id="node-input-sampling_rate" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-pitch"><i class="fa fa-tag"></i>pitch</label>
+        <input type="text" id="node-input-pitch" />
+        <br/>
+        数値を指定。再生にかかる時間。220をデフォルトとし、短くすると早く、遅くするとゆっくり喋る。
+    </div>
+    <div class="form-row">
+        <label for="node-input-audio_buff_size><i class="fa fa-tag"></i>audio_buffer_size</label>
+        <input type="text" id="node-input-audio_buff_size" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-alpha"><i class="fa fa-tag"></i>alpha</label>
+        <input type="text" id="node-input-alpha" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-beta"><i class="fa fa-tag"></i>beta</label>
+        <input type="text" id="node-input-beta" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-uv_threshold"><i class="fa fa-tag"></i>uv_threshold</label>
+        <input type="text" id="node-input-uv_threshold" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-gv_weight_mgc"><i class="fa fa-tag"></i>gv_weight_mgc</label>
+        <input type="text" id="node-input-gv_weight_mgc" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-gv_weight_lf0"><i class="fa fa-tag"></i>gv_weight_lf0</label>
+        <input type="text" id="node-input-gv_weight_lf0" />
+    </div>
+
+
+</script>
+
+<script type="text/x-red" data-help-name="tjbotzero-openjtalk">
+    <p>OpenJtalk is Japanese text to speech software. if Using this node, Raspberry Pi can speak voice on Node-RED.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+       <dt>payload<span class="property-type">string</span></dt>
+       <dd>Japanese text for Text to Speech</dd>
+    </dl>
+</script>sudo alsa force-reload
+
+<script type="text/javascript">
+    RED.nodes.registerType('tjbotzero-openjtalk', {
+        color: '#87A980',
+        category: 'function',
+        defaults: {
+            name: { value: '' },
+            htsvoice: { value: './voice/mei/mei_normal.voice', required: true },
+            dic: { value: './dic/open_jtalk_dic_utf8-1.09' },
+            sampling_rate: { value: 48000 },
+            pitch: { value: 220 },
+            audio_buff_size: { value: 48000 },
+            alpha: { value: 0.5 },
+            beta: { value: 0.8 },
+            uv_threshold: { value: 0.5 },
+            gv_weight_mgc: { value: 1.0 },
+            gv_weight_lf0: { value: 1.0 }
+        },
+        inputs: 1,
+        outputs: 0,
+        align: 'right',
+        icon: 'icon.png',
+        label: function () {
+            return this.name || 'tjbotzero-openjtalk';
+        }
+    });
+</script>

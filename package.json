@@ -1,0 +1,40 @@
+{
+    "name": "node-red-contrib-tjbot-openjtalk",
+    "version": "0.0.1",
+    "description": "TJBot zero local speak to text Node-RED node with OpenJTalk",
+    "main": "tjbotzero-openjtalk.js",
+    "scripts": {
+        "test": "mocha \"test/tjbotzero-openjtalk_spec.js\""
+    },
+    "node-red": {
+        "nodes": {
+            "tjbotzero-openjtalk": "tjbotzero-openjtalk.js"
+        }
+    },
+    "keywords": [
+        "node-red",
+        "tjbotzero",
+        "tjbot",
+        "openjtalk"
+    ],
+    "dependencies": {
+        "openjtalk": "git+https://github.com/phssakaigawa/node-openjtalk.git"
+    },
+    "devDependencies": {
+        "node-red": "^3.0.2",
+        "node-red-node-test-helper": "^0.3.0"
+    },
+    "license": "Apache-2.0",
+    "directories": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tjbotfan/nodered-contrib-tjbot-openjtalk.git"
+    },
+    "author": "tjbotfan",
+    "bugs": {
+        "url": "https://github.com/tjbotfan/nodered-contrib-tjbot-openjtalk/issues"
+    },
+    "homepage": "https://github.com/tjbotfan/nodered-contrib-tjbot-openjtalk#readme"
+}

@@ -21,3 +21,10 @@ this node required from depends opentalk nodejs module
 sudo apt install build-essential
 sudo apt install automake
 ```
+
+
+## Special Thanks:
+@hecomi node-openjtalk developer
+
+## Dependencies module
+[node-openkjtalk](https://github.com/hecomi/node-openjtalk/)
